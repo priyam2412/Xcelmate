@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XcelMate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/1b/a8/55/1ba85555d9ae41d1fa6fcadcae997a43.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .navbar {
+            width: 100%;
+            background-color: rgba(42, 105, 188, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00695c;
+        }
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 60px; /* Adjusted to move the title down */
+            left: 60px; /* Adjusted to move the title to the right */
+            text-align: left;
+            z-index: 10; /* Ensure title is above other elements */
+            display: flex;
+            align-items: center;
+        }
+        .title i {
+            font-size: 4rem;
+            margin-right: 15px;
+            color: #ff6347; /* Tomato color */
+        }
+        .contact-info {
+            position: absolute;
+            bottom: 20px; /* Adjust to position it correctly */
+            right: 20px; /* Adjust to position it correctly */
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .contact-info img {
+            width: 24px; /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+            margin-right: 10px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+            margin-top: 120px; /* Adjusted margin to move the form down */
+        }
+        h2 {
+            color: #2C3E50;
+        }
+        .btn-primary {
+            background-color: #00695c;
+            border-color: #004d40;
+        }
+        .btn-primary:hover {
+            background-color: #004d40;
+            border-color: #00332e;
+        }
+        .form-group label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .form-group label .fa-file-pdf {
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">XcelMate</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('welcome') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#loginModal" data-toggle="modal">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#registerModal" data-toggle="modal">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="title"><i class="fas fa-table"></i> XcelMate</div>
+    <div class="container">
+        <h2 class="mb-4">Upload PDF Form</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="pdf_file"><i class="fas fa-file-pdf"></i> Choose PDF file</label>
+                <input type="file" class="form-control" id="pdf_file" name="pdf_file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Process</button>
+        </form>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="loginEmail">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="registerName">Name</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Enter name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerAge">Age</label>
+                            <input type="number" class="form-control" id="registerAge" placeholder="Enter age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPhone">Phone Number</label>
+                            <input type="tel" class="form-control" id="registerPhone" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email address</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <img src="https://img.icons8.com/material-outlined/24/000000/phone--v1.png" alt="Call Icon"> <!-- Updated phone icon -->
+        <span>+123-456-7890</span>
+    </div>
+
+    <div class="footer">
+        <strong>Unlimited access to all our tools</strong>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

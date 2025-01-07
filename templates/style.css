@@ -1,0 +1,12 @@
+body {
+    background-color: #7fbeb6; /* Light gray background color */
+}
+.navbar {
+    margin-bottom: 20px;
+}
+.container {
+    background-color: #ffffff; /* White background for the form container */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,103 @@
+•,The search function is used to find whether a given value is present in the tree or not.
+"",The searching process begins at the root node.
+•,"The function first checks if the binary search tree is empty. If it is empty, then the value"
+"",we are searching for is not present in the tree.
+•,"If there are nodes in the tree, then the search function checks to see if the key value"
+"",of the current node is equal to the value to be searched.
+•,"If not, it checks if the value to be searched for is less than the value of the current"
+"","node, in which case it should be recursively called on the left child node."
+•,"In case the value is greater than the value of the current node, it should be recursively"
+•,The AVL tree was introduced in the year 1962 by G.M. Adelson-Velsky and E.M. Landis.
+•,"In AVL tree, after performing operations like insertion and deletion we need to check"
+"",the balance factor of every node in the tree.
+•,"If every node satisfies the balance factor condition, then we conclude the operation"
+"",otherwise we must make it balanced.
+•,"Whenever the tree becomes imbalanced due to any operation, we"
+Single Right Rotation (RR Rotation)
+"•In RR Rotation, every node moves one position to right from the current position. To"
+"understand RR Rotation, let us consider the following insertion operation in AVL Tree..."
+""
+Left Right Rotation (LR Rotation)
+•The LR Rotation is a sequence of single left rotation followed by a single right rotation.
+"In LR Rotation, at first, every node moves one position to the left and one position to"
+"rightfromthecurrentposition.TounderstandLRRotation,letusconsiderthe"
+following insertion operation in AVL Tree...
+""
+Right Left Rotation (RL Rotation)
+•The RL Rotation is sequence of single right rotation followed by single left rotation. In
+"RL Rotation, at first every node moves one position to right and one position to left"
+"from the current position. To understand RL Rotation, let us consider the following"
+insertion operation in AVL Tree...
+""
+Operations on an AVL Tree
+Insertion Operation in AVL Tree
+"•In an AVL tree, the insertion operation is performed with O(log n) time complexity. In"
+"AVL Tree, a new node is always inserted as a leaf node. The insertion operation is"
+performed as follows...
+oStep 1 - Insert the new element into the tree using Binary Search Tree insertion
+logic.
+"oStep 2 - After insertion, check the Balance Factor of every node."
+oStep 3 - If the Balance Factor of every node is 0 or 1 or -1 then go for next
+operation.
+oStep 4 - If the Balance Factor of any node is other than 0 or 1 or -1 then that
+"tree is said to be imbalanced. In this case, perform suitable Rotation to make"
+it balanced and go for next operation.
+Example: Construct an AVL Tree by inserting numbers from 1 to 8.
+Deletion Operation in AVL Tree
+•The deletion operation in AVL Tree is similar to deletion operation in BST. But after
+"every deletion operation, we need to check with the Balance Factor condition."
+•If the tree is balanced after deletion go for next operation otherwise perform suitable
+rotation to make the tree Balanced.
+HEAPS
+•There are two types of heap data structures and they are as follows...
+Every heap data structure has the following properties...
+oProperty #1 (Ordering): Nodes must be arranged in an order according
+to their values based on Max heap or Min heap.
+oProperty #2 (Structural): All levels in a heap must be full except the last
+level and all nodes must be filled from left to right strictly.
+Max Heap
+Above tree is satisfying both Ordering property and Structural property according to the Max
+Heap data structure.
+Operations on Max Heap
+The following operations are performed on a Max heap data structure.
+Finding Maximum Value Operation in Max Heap
+oFinding the node which has maximum value in a max heap is very simple. In a max
+"heap, the root node has the maximum value than all other nodes. So, directly we can"
+display root node value as the maximum value in max heap.
+Insertion Operation in Max Heap
+Insertion Operation in max heap is performed as follows...
+•Step 1 - Insert the newNode as last leaf from left to right.
+•Step 2 - Compare newNode value with its Parent node.
+"•Step 3 - If newNode value is greater than its parent, then swap both of them."
+•Step 4 - Repeat step 2 and step 3 until newNode value is less than its parent node (or)
+newNode reaches to root.
+Example
+""
+Consider the above max heap. Insert a new node with value 85.
+COLLISION RESOLUTION BY OPEN ADDRESSING
+"•Once a collision takes place, open addressing or closed hashing computes new positions"
+using a probe sequence and the next record is stored in that position.
+"•In this technique, all the values are stored in the hash table. The hash table contains two"
+"types of values: sentinel values (e.g., –1) and data values."
+•The presence of a sentinel value indicates that the location contains no data value at
+present but can be used to hold a value.
+•The process of examining memory locations in the hash table is called probing.
+•Open addressing technique can be implemented using
+olinear probing
+oquadratic probing
+odouble hashing
+Linear Probing
+"•The simplest approach to resolve a collision is linear probing. In this technique, if a value"
+"is already stored at a location generated by h(k), then the following hash function is used"
+to resolve the collision:
+""
+"•Where m is the size of the hash table, h’(k) = (k mod m), and i is the probe number that"
+varies from 0 to m–1
+COLLISION RESOLUTION BY SEPARATE CHAINING
+•The idea behind separate chaining is to implement the array as a linked list called a chain.
+The linked list data structure is used to implement this technique.
+"•When multiple elements are hashed into the same slot index, then these elements are"
+inserted into a singly-linked list which is known as a chain.
+""
+""
+""

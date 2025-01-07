@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to XcelMate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/1b/a8/55/1ba85555d9ae41d1fa6fcadcae997a43.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            justify-content: center;
+            animation: zoom 20s infinite alternate;
+        }
+        
+        @keyframes zoom {
+            0% {
+                background-size: 100%;
+            }
+            100% {
+                background-size: 120%;
+            }
+        }
+
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            font-weight: bold;
+            z-index: 10;
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .title i {
+            font-size: 3rem;
+            margin-right: 10px;
+            color: #ff6347; /* Tomato color */
+        }
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00695c; /* Green color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn-get-started {
+            background-color: #00695c;
+            border-color: #004d40;
+            font-size: 1.25rem;
+            padding: 15px 30px;
+        }
+        .btn-get-started:hover {
+            background-color: #004d40;
+            border-color: #00332e;
+        }
+    </style>
+</head>
+<body>
+    <div class="title"><i class="fas fa-table"></i> XcelMate</div>
+    <div class="welcome-title">
+        Welcome to XcelMate
+    </div>
+    <a href="{{ url_for('index') }}" class="btn btn-primary btn-get-started">Get Started</a>
+</body>
+</html>
+
+
+
+
+
+
+
+

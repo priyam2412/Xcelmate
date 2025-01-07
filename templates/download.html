@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Processed Files</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/1b/a8/55/1ba85555d9ae41d1fa6fcadcae997a43.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .title {
+            position: absolute;
+            top: 20px; /* Adjusted to move the title down */
+            left: 20px;
+            font-size: 2.5rem; /* Adjust font size as needed */
+            color: #FFFFFF; /* White color for the title */
+            font-weight: bold; /* Makes the title bold */
+            z-index: 10; /* Ensures the title is above the content */
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow for better readability */
+        }
+        .title i {
+            font-size: 3rem;
+            margin-right: 10px;
+            color: #ff6347; /* Tomato color */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            z-index: 10;
+            border: 2px solid rgba(42, 105, 188, 0.8); /* Blue border */
+        }
+        h3 {
+            color: #2C3E50;
+        }
+        .btn-secondary {
+            background-color: #00695c;
+            border-color: #004d40;
+            margin-top: 10px;
+        }
+        .btn-secondary:hover {
+            background-color: #004d40;
+            border-color: #00332e;
+        }
+        .file-link {
+            display: block;
+            margin: 10px 0;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            font-size: 1.25rem; /* Larger font size */
+            font-weight: bold; /* Bold text */
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="title"><i class="fas fa-table"></i> XcelMate</div>
+    <div class="container">
+        <h3 class="mb-4">Download Files</h3>
+        <a href="{{ url_for('download_file', filename='extracted_text.txt') }}" class="btn btn-secondary file-link">Download Extracted Text (TXT)</a>
+        <a href="{{ url_for('download_file', filename='extracted_text.docx') }}" class="btn btn-secondary file-link">Download Extracted Text (DOCX)</a>
+        <a href="{{ url_for('download_file', filename='converted.csv') }}" class="btn btn-secondary file-link">Download Extracted Data (CSV)</a>
+        <a href="{{ url_for('download_images') }}" class="btn btn-secondary file-link">Download Extracted Images (ZIP)</a>
+        <!-- <a href="{{ url_for('download_file', filename='detected_marks.txt') }}" class="btn btn-secondary file-link">Download Detected Marks (TXT)</a> -->
+    </div>
+    <div class="footer">
+        <strong>Unlimited access to all our tools</strong>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
